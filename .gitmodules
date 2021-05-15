@@ -1,0 +1,3 @@
+[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_update_upgrade"]
+	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_update_upgrade
+	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-update-upgrade.git
