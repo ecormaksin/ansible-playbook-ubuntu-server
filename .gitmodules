@@ -5,3 +5,4 @@
 [submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_vim"]
 	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_vim
 	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-vim.git
+	ignore = dirty
