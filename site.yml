@@ -1,0 +1,3 @@
+- hosts: all
+  roles:
+    - ecormaksin.ansible_galaxy_role_ubuntu_update_upgrade
