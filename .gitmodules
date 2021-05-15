@@ -6,3 +6,11 @@
 	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_vim
 	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-vim.git
 	ignore = dirty
+[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_ntp_client"]
+	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_ntp_client
+	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-ntp-client.git
+	ignore = dirty
+[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_timezone"]
+	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_timezone
+	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-timezone.git
+	ignore = dirty
