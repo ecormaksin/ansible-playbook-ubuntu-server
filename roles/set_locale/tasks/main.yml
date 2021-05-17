@@ -7,15 +7,27 @@
       - language-pack-ja-base
       - language-pack-ja 
 
+# - name: "Set Locale Japanese | Set locale japanese"
+#   become: yes
+#   ignore_errors: "{{ ansible_check_mode }}"
+#   shell:
+#     cmd: |
+#       echo $LANG | grep "ja_JP.UTF-8" >/dev/null
+#       if [ $? -eq 0 ]; then
+#         echo "already changed."
+#       else
+#         localectl set-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"
+#         . /etc/default/locale
+#       fi
+
+- name: "Set Locale Japanese | Check locale"
+  become: yes
+  ignore_errors: "{{ ansible_check_mode }}"
+  command: echo $LANG
+  register: echo_lang_result
+
 - name: "Set Locale Japanese | Set locale japanese"
   become: yes
   ignore_errors: "{{ ansible_check_mode }}"
-  shell:
-    cmd: |
-      echo $LANG | grep "ja_JP.UTF-8" >/dev/null
-      if [ $? -eq 0 ]; then
-        echo "already changed."
-      else
-        localectl set-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"
-        . /etc/default/locale
-      fi
+  command: update-locale LANG=ja_JP.UTF-8
+  when: echo_lang_result != "ja_JP.UTF-8"
