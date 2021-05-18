@@ -6,4 +6,5 @@
     - ecormaksin.ansible_galaxy_role_ubuntu_vim
     - ecormaksin.ansible_galaxy_role_ubuntu_ntp_client
     - ecormaksin.ansible_galaxy_role_ubuntu_timezone
-    - set_locale
+    - ecormaksin.ansible_galaxy_role_ubuntu_locale_japanese
+    - ecormaksin.ansible_galaxy_role_ubuntu_tmux

@@ -14,3 +14,11 @@
 	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_timezone
 	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-timezone.git
 	ignore = dirty
+[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_locale_japanese"]
+	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_locale_japanese
+	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-locale-japanese.git
+	ignore = dirty
+[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_tmux"]
+	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_tmux
+	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-tmux.git
+	ignore = dirty
