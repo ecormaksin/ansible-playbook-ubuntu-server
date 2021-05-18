@@ -1,4 +1,4 @@
-- name: "Set Locale Japanese | Install packages"
+- name: "Set Locale Japanese | Install package"
   become: yes
   ignore_errors: "{{ ansible_check_mode }}"
   apt:
