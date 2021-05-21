@@ -22,3 +22,7 @@
 	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_tmux
 	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-tmux.git
 	ignore = dirty
+[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_iptables"]
+	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_iptables
+	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-iptables.git
+	ignore = dirty

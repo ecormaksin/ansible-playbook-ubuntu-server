@@ -8,4 +8,4 @@
     - ecormaksin.ansible_galaxy_role_ubuntu_timezone
     - ecormaksin.ansible_galaxy_role_ubuntu_locale_japanese
     - ecormaksin.ansible_galaxy_role_ubuntu_tmux
-    - iptables
+    - ecormaksin.ansible_galaxy_role_ubuntu_iptables
