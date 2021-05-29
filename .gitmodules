@@ -26,3 +26,7 @@
 	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_iptables-http-https
 	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-iptables-http-https.git
 	ignore = dirty
+[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_docker"]
+	path = roles/ecormaksin.ansible_galaxy_role_ubuntu_docker
+	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-docker.git
+	ignore = dirty
