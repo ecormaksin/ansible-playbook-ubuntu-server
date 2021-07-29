@@ -8,3 +8,5 @@
     - tmux
     - iptables-http-https
     - docker
+    - xfce4
+    - xrdp

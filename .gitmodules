@@ -30,3 +30,11 @@
 	path = roles/docker
 	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-docker.git
 	ignore = dirty
+[submodule "roles/xfce4"]
+	path = roles/xfce4
+	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu_xfce4.git
+	ignore = dirty
+[submodule "roles/xrdp"]
+	path = roles/xrdp
+	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu_xrdp.git
+	ignore = dirty
