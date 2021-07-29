@@ -1,10 +1,10 @@
 - hosts: all
   roles:
-    - ecormaksin.ansible_galaxy_role_ubuntu_update_upgrade
-    - ecormaksin.ansible_galaxy_role_ubuntu_vim
-    - ecormaksin.ansible_galaxy_role_ubuntu_ntp_client
-    - ecormaksin.ansible_galaxy_role_ubuntu_timezone
-    - ecormaksin.ansible_galaxy_role_ubuntu_locale_japanese
-    - ecormaksin.ansible_galaxy_role_ubuntu_tmux
-    - ecormaksin.ansible_galaxy_role_ubuntu_iptables-http-https
-    - ecormaksin.ansible_galaxy_role_ubuntu_docker
+    - update_upgrade
+    - vim
+    - ntp_client
+    - timezone
+    - locale_japanese
+    - tmux
+    - iptables-http-https
+    - docker
