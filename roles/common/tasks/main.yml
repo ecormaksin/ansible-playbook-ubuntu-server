@@ -1,0 +1,87 @@
+- name: "common: apt | update packages"
+  become: true
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: "common: apt | upgrade packages"
+  become: true
+  ansible.builtin.apt:
+    upgrade: dist
+
+- name: "common: apt | autoremove packages"
+  become: true
+  ansible.builtin.apt:
+    autoremove: yes
+
+- name: "common: apt | install packages"
+  become: true
+  ansible.builtin.apt:
+    pkg:
+      - vim
+      - language-pack-ja
+      - tmux
+      - xsel
+      - iptables
+      - iptables-persistent
+
+- name: "common: vim | call vim instead of vi"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  ansible.builtin.lineinfile:
+    state: present
+    insertafter: "EOF"
+    path: "{{ etc.profile.file.path }}"
+    line: "alias vi='vim'"
+
+- name: "common: vim | copy file to customise vim settings"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  copy:
+    src: vimrc
+    dest: "{{ vim.rc_ext.dist.file.path }}"
+
+- name: "common: timezone | Set timezone"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  community.general.timezone:
+    name: "{{ timezone.name }}"
+
+- name: "common: ntp | change timesyncd.conf"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  ansible.builtin.replace:
+    path: "{{ timesyncd.file.path }}"
+    regexp: '^#NTP=$'
+    replace: "NTP={{ ntp.server }}"
+
+- name: "common: ntp | restart systemd-timesyncd"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  ansible.builtin.systemd:
+    name: systemd-timesyncd
+    state: restarted
+
+- name: "common: locale | create locale"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  community.general.locale_gen:
+    name: "{{ locale.name }}"
+    state: present
+
+- name: "common: locale | check locale"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  command: cat /etc/default/locale
+  register: cat_locale_result
+
+- name: "common: locale | change locale"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  command: "update-locale LANG={{ locale.name }}"
+  when: cat_locale_result.stdout != "LANG=(locale.name)"
+
+- name: "common: tmux | copy setting file"
+  ignore_errors: "{{ ansible_check_mode }}"
+  copy:
+    src: .tmux.conf
+    dest: "~/.tmux.conf"

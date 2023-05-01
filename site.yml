@@ -1,12 +1,13 @@
 - hosts: all
   roles:
-    - update_upgrade
-    - vim
-    - ntp_client
-    - timezone
-    - locale_japanese
-    - tmux
-    - iptables-http-https
-    - docker
-    - xfce4
-    - xrdp
+    - common
+    # - update_upgrade
+    # - vim
+    # - ntp_client
+    # - timezone
+    # - locale_japanese
+    # - tmux
+    # - iptables-http-https
+    # - docker
+    # - xfce4
+    # - xrdp
