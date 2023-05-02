@@ -1,25 +1,15 @@
 # Ansible Playbook to setup Ubuntu Server
 
-- syntax check
-
 ```shell
-ansible-playbook -i ./inventory/target.yml site.yml -vv --syntax-check
-```
+# playbookのシンタックスチェック
+ansible-playbook -vv --syntax-check -i ./inventory.yml --extra-vars @control-node.yml site.yml
 
-- dry run
+# ドライラン
+ansible-playbook -vv --check -i ./inventory.yml --extra-vars @control-node.yml site.yml
 
-```shell
-ansible-playbook -i ./inventory/target.yml site.yml -vv --check
-```
+# 実際に実行
+ansible-playbook -vv -i ./inventory.yml --extra-vars @control-node.yml site.yml
 
-- run
-
-```shell
-ansible-playbook -i ./inventory/target.yml site.yml -vv
-```
-
-- run from the middle
-
-```shell
-ansible-playbook -i ./inventory/target.yml site.yml -vv --start-at="<task name>"
+# 途中から実行
+ansible-playbook -vv -i ./inventory.yml --extra-vars @control-node.yml --start-at="<途中から開始したいタスク名>" site.yml
 ```

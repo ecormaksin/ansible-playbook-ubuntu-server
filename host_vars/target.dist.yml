@@ -1,0 +1,2 @@
+ansible_host: <Ansible target host ip address>
+ansible_port: <Ansible target host ssh port if needed>

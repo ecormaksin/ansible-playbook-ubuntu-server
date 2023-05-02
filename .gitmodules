@@ -1,31 +1,3 @@
-[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_update_upgrade"]
-	path = roles/update_upgrade
-	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-update-upgrade.git
-	ignore = dirty
-[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_vim"]
-	path = roles/vim
-	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-vim.git
-	ignore = dirty
-[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_ntp_client"]
-	path = roles/ntp_client
-	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-ntp-client.git
-	ignore = dirty
-[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_timezone"]
-	path = roles/timezone
-	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-timezone.git
-	ignore = dirty
-[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_locale_japanese"]
-	path = roles/locale_japanese
-	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-locale-japanese.git
-	ignore = dirty
-[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_tmux"]
-	path = roles/tmux
-	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-tmux.git
-	ignore = dirty
-[submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_iptables"]
-	path = roles/iptables-http-https
-	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-iptables-http-https.git
-	ignore = dirty
 [submodule "roles/ecormaksin.ansible_galaxy_role_ubuntu_docker"]
 	path = roles/docker
 	url = git@github.com:ecormaksin/ansible_galaxy_role_ubuntu-docker.git
