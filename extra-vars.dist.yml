@@ -1,0 +1,3 @@
+slapd_admin_password: <OpenLDAPの管理者パスワード>
+slapd_domain_name: <OpenLDAPのドメイン名>
+slapd_organization_name: <OpenLDAPの組織名>

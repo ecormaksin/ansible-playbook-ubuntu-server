@@ -1,0 +1,50 @@
+- name: "ldap: install debconf packages"
+  become: true
+  ansible.builtin.apt:
+    pkg:
+      - debconf
+      - debconf-utils
+
+- name: "ldap: set debconf selections"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  ansible.builtin.debconf:
+    name: slapd
+    question: "{{ item.question }}"
+    value: "{{ item.value }}"
+    vtype: "{{ item.vtype }}"
+  with_items:
+    - { question: "slapd/password1", value: "{{ slapd_admin_password }}", vtype: "password" }
+    - { question: "slapd/password2", value: "{{ slapd_admin_password }}", vtype: "password" }
+    - { question: "slapd/internal/adminpw", value: "{{ slapd_admin_password }}", vtype: "password" }
+    - { question: "slapd/internal/generated_adminpw", value: "{{ slapd_admin_password }}", vtype: "password" }
+    - { question: "slapd/no_configuration", value: false, vtype: "boolean" }
+    - { question: "slapd/move_old_database", value: true, vtype: "boolean" }
+    - { question: "slapd/domain", value: "{{ slapd_domain_name }}", vtype: "string" }
+    - { question: "slapd/dump_database_destdir", value: "/var/backups/slapd-VERSION", vtype: "string" }
+    - { question: "slapd/purge_database", value: true, vtype: "boolean" }
+    - { question: "shared/organization", value: "{{ slapd_organization_name }}", vtype: "string" }
+    - { question: "slapd/invalid_config", value: false, vtype: "boolean" }
+    - { question: "slapd/dump_database", value: "when needed", vtype: "select" }
+  no_log: true
+
+- name: "ldap: set debconf selections without value"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  ansible.builtin.debconf:
+    name: slapd
+    question: "{{ item.question }}"
+    value: ""
+    vtype: "{{ item.vtype }}"
+  with_items:
+    - { question: "slapd/postinst_error", vtype: "note" }
+    - { question: "slapd/password_mismatch", vtype: "note" }
+    - { question: "slapd/upgrade_slapcat_failure", vtype: "error" }
+  # no_log: true
+
+- name: "ldap: install slapd packages"
+  become: true
+  ansible.builtin.apt:
+    pkg:
+      - slapd
+      - ldap-utils

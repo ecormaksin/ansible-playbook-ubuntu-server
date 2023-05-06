@@ -2,5 +2,8 @@
   roles:
     - common
     - docker
+    - ldap
     # - xfce4
     # - xrdp
+  environment:
+    DEBIAN_FRONTEND: noninteractive

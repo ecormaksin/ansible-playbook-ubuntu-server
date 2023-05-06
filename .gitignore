@@ -3,3 +3,4 @@ work.txt
 work_task.yml
 control-node.yml
 host_vars/target.yml
+extra-vars.yml
