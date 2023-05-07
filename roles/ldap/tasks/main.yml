@@ -26,21 +26,10 @@
     - { question: "shared/organization", value: "{{ slapd_organization_name }}", vtype: "string" }
     - { question: "slapd/invalid_config", value: false, vtype: "boolean" }
     - { question: "slapd/dump_database", value: "when needed", vtype: "select" }
+    - { question: "slapd/postinst_error", value: "", vtype: "note" }
+    - { question: "slapd/password_mismatch", value: "", vtype: "note" }
+    - { question: "slapd/upgrade_slapcat_failure", value: "", vtype: "error" }
   no_log: true
-
-- name: "ldap: set debconf selections without value"
-  become: true
-  ignore_errors: "{{ ansible_check_mode }}"
-  ansible.builtin.debconf:
-    name: slapd
-    question: "{{ item.question }}"
-    value: ""
-    vtype: "{{ item.vtype }}"
-  with_items:
-    - { question: "slapd/postinst_error", vtype: "note" }
-    - { question: "slapd/password_mismatch", vtype: "note" }
-    - { question: "slapd/upgrade_slapcat_failure", vtype: "error" }
-  # no_log: true
 
 - name: "ldap: install slapd packages"
   become: true
@@ -48,3 +37,10 @@
     pkg:
       - slapd
       - ldap-utils
+
+- name: "ldap: start slapd service"
+  become: true
+  ignore_errors: "{{ ansible_check_mode }}"
+  ansible.builtin.systemd:
+    name: slapd
+    state: started
