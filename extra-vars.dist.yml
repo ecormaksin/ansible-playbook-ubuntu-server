@@ -1,3 +1,5 @@
 slapd_admin_password: <OpenLDAPの管理者パスワード>
 slapd_domain_name: <OpenLDAPのドメイン名>
 slapd_organization_name: <OpenLDAPの組織名>
+ldap_dn_base: <LDAPのDN Base dc=...,>
+ldap_admin_bind_password: <LDAPのadminパスワード>
